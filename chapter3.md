@@ -1,4 +1,7 @@
-参考书籍：[《视觉SLAM十四讲》]( https://pan.baidu.com/s/1lcbQMu1Sz_bO0YTmHbhx1w?pwd=xxxt )
+参考书籍：
+- [《视觉SLAM十四讲》（第1版）](https://pan.baidu.com/s/1CN4u8kRz2iuFh6VH_Ivg7A?pwd=xxxt )
+- [《视觉SLAM十四讲》（第2版）](https://pan.baidu.com/s/1CN4u8kRz2iuFh6VH_Ivg7A?pwd=xxxt )
+
 ## 3.4 四元数
 ### 3.4.1 四元数的定义
 - 四元数是一种扩展的复数，它**既是紧凑的，也没有奇异性**（关于这一点，详见书上内容），它能够表示三维空间的旋转
