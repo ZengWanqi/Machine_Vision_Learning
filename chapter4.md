@@ -86,4 +86,43 @@ $$
 \boldsymbol{R}=\exp \left(\phi^{\wedge}\right)
 $$
 ### 4.1.5 李代数  $\mathfrak{se}(3)$
+- $SO(3)$ 的李代数 $\mathfrak{so}(3)$ 位于 $\mathbb{R}^3$ 空间中。
+- $SE(3)$ 的李代数 $\mathfrak{se}(3)$ 位于 $\mathbb{R}^6$ 空间中，其定义式如下：
+$$
+\mathfrak{se}(3) = \left\{ \boldsymbol{\xi} = \begin{bmatrix} \boldsymbol{\rho} \\ \boldsymbol{\phi} \end{bmatrix} \in \mathbb{R}^6, \boldsymbol{\rho} \in \mathbb{R}^3, \boldsymbol{\phi} \in \mathfrak{so}(3), \boldsymbol{\xi}^\wedge = \begin{bmatrix} \boldsymbol{\phi}^\wedge & \boldsymbol{\rho} \\ \mathbf{0}^T & 0 \end{bmatrix} \in \mathbb{R}^{4 \times 4} \right\}
+$$
+其中，$\mathfrak{se}(3)$ 的元素记作 $\boldsymbol{\xi}$，它是一个六维向量：前三维为平移 $\boldsymbol{\rho}$，后三维为旋转 $\boldsymbol{\phi}$。
+- 在 $\mathfrak{se}(3)$ 中，同样是用 $^\wedge$ 符号，将六维向量转换为四维矩阵，但这里不再表示反对称：
+$$
+\boldsymbol{\xi}^{\wedge}=\left[\begin{array}{ll}\phi^{\wedge} & \boldsymbol{\rho} \\ \mathbf{0}^{T} & 0\end{array}\right] \in \mathbb{R}^{4 \times 4}
+$$
+- $\mathfrak{se}(3)$ 有类似于 $\mathfrak{so}(3)$ 的李括号：
 
+$$
+\left[\boldsymbol{\xi}_{1}, \boldsymbol{\xi}_{2}\right]=\left(\boldsymbol{\xi}_{1}^{\wedge} \boldsymbol{\xi}_{2}^{\wedge}-\boldsymbol{\xi}_{2}^{\wedge} \boldsymbol{\xi}_{1}^{\wedge}\right)^{\vee}
+$$
+## 4.2 指数与对数映射
+### 4.2.1 $SO(3)$ 上的指数映射
+我们需要关注一个问题：$exp(\boldsymbol{\phi}^\wedge)$ 该如何计算？在李群和李代数中，这个被称为**指数映射**。
+- $\mathfrak{so}(3)$ 中的元素 $\phi$ 的指数映射定义如下：
+$$
+\exp \left(\phi^{\wedge}\right)=\sum_{n=-n} \frac{1}{n!}\left(\phi^{\wedge}\right)^{n}
+$$
+- 对于三维向量 $\phi$，我们定义它的模长为 $\theta$，方向为 $\boldsymbol{a}$。（只是定义而已，不要遐想）
+然后，经过书上复杂的处理……最终得到了这么一个似曾相识的式子：
+$$
+\exp \left(\theta \boldsymbol{a}^{\wedge}\right)=\cos \theta \boldsymbol{I}+(1-\cos \theta) \boldsymbol{a} \boldsymbol{a}^{T}+\sin \theta \boldsymbol{a}^{\wedge}
+$$
+回忆 3.3 旋转向量和欧拉角 小节讲的，旋转向量到旋转矩阵的变换过程由**罗德里格斯公式**给出：
+$$
+\boldsymbol{R}=\cos \theta \boldsymbol{I}+(1-\cos \theta) \boldsymbol{n} \boldsymbol{n}^{T}+\sin \theta \boldsymbol{n}^{\wedge}
+$$
+  其中，旋转轴为 $\boldsymbol{n}$，旋转角度为 $\theta$。
+
+这下我们应该发现了，$\mathfrak{so}(3)$ 实际上是由**旋转向量**组成的空间，而**指数映射**即**罗德里格斯公式**。
+- 通过指数映射，我们可以把 $\mathfrak{so}(3)$ 中的任意向量对应到位于 $SO(3)$ 中的旋转矩阵。
+  - 
+- 通过对数映射，我们可以把  $SO(3)$ 中的任意矩阵对应到位于 $\mathfrak{so}(3)$ 中的旋转向量。
+## 4.3 李代数求导与扰动模型
+### 4.3.1 BCH 公式与近似形式
+我们需要明确，使用李代数的目的是为了进行优化，而在优化过程中，导数是非常重要的信息。
