@@ -1,2 +1,3 @@
 # Ultralytics代码学习
-Ultralytics\Ultralytics_Test\
+Ultralytics/*
+!Ultralytics/NoteBook.md
