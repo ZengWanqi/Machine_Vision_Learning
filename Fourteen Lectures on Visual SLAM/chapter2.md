@@ -43,3 +43,16 @@ SLAM 不是某种算法，它需要一个**完善的算法框架**。
 &emsp;&emsp;在**检测到回环**后，后端根据所提供的信息，把轨迹和地图调整到符合回环检测结果的样子。
 ### 2.2.4 建图
 &emsp;&emsp;**地图**是对环境的描述。不同的应用场景，需要的地图形式不同。
+## 2.3 SLAM 问题的数学表述
+SLAM 过程可以总结为**两个基本方程**：**运动方程**和**观测方程**。
+- **运动方程**
+  $$
+  \boldsymbol{x}_{k}=f\left(\boldsymbol{x}_{k-1}, \boldsymbol{u}_{k}, \boldsymbol{w}_{k}\right)
+  $$
+  其中，$\boldsymbol{x}_k$ 表示相机的**位置**，$\boldsymbol{u}_k$ 是**运动传感器**的输入，$\boldsymbol{w}_k$ 是加入的**噪声**。
+- **观测方程**
+$$
+\boldsymbol{z}_{k,j}=h\left(\boldsymbol{y}_{j}, \boldsymbol{x}_{k}, \boldsymbol{v}_{k, j}\right)
+$$
+  其中，$\boldsymbol{z}_{k,j}$ 是机器人在 $\boldsymbol{x}_{k}$ 位置上看到**路标** $\boldsymbol{y}_j$ 时产生的**观测数据**。$\boldsymbol{v}_{k, j}$ 是观测里的**噪声**。
+最基本的 SLAM 问题：当知道运动测量的读数 $\boldsymbol{u}$，以及传感器读数 $\boldsymbol{z}$ 时，如何求解**定位问题（估计 $\boldsymbol{x}$）**和 **建图问题（估计 $\boldsymbol{y}$）**。
